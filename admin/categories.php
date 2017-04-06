@@ -48,11 +48,11 @@ if(isset($_POST)&& !empty($_POST)){
 
     //ako category e prazna
     if($category==''){
-        $errors[].='Category cannot be left blank';
+        $errors[].='Категорија не може да биде празна';
     }
     // ako veke postoe vo databazata
     if($count>0){
-        $errors[].=$category.' alredy exists.Please choose another category';
+        $errors[].=$category.' веќе постое.Ве молиме одберете друга категорија';
 
     }
 
@@ -95,18 +95,18 @@ if(isset($_GET['edit'])){
 
 }
 ?>
-<h2 class="text-center">Categories</h2><hr>
+<h2 class="text-center">Категории</h2><hr>
 <div class="row">
 
     <!--Form-->
     <div class="col-md-6">
       <form class="form" action="categories.php<?=((isset($_GET['edit']))?'?edit='.$edit_id:''); ?>" method="post">
-          <legend><?=((isset($_GET['edit']))?'Edite':'Add a');?> Category</legend><!-- znaci ako e na categories.php ke ti pisuva u naslovo add category a ako ga edniteiras edit category-->
+          <legend><?=((isset($_GET['edit']))?'Измени':'Додај ');?> Категорија</legend><!-- znaci ako e na categories.php ke ti pisuva u naslovo add category a ako ga edniteiras edit category-->
           <div id="errors"></div>
           <div class="form-group">
-              <label for="parent">Parent</label>
+              <label for="parent">Родител</label>
               <select class="form-control" name="parent" id="parent">
-              <option value="0"<?=(($parent_value==0)?'selected="selected"':'');?>>Parent</option>
+              <option value="0"<?=(($parent_value==0)?'selected="selected"':'');?>>Родител</option>
               <?php while($parent=mysqli_fetch_assoc($result)):?>
               <option value="<?=$parent['id'];?>"<?=(($parent_value==$parent['id'])?'selected="selected"':'')?>><?=$parent['category'];?></option>
 
@@ -115,11 +115,11 @@ if(isset($_GET['edit'])){
               </select>
           </div>
           <div class="form-group">
-              <label for="category">Category</label>
+              <label for="category">Категорија</label>
               <input type="text" class="form-control" id="category" name="category" value="<?=$category_value;?>">
           </div>
           <div class="form-group">
-              <input type="submit" value="<?=((isset($_GET['edit']))?'Edit':'Add');?> Category" class="btn btn-success">
+              <input type="submit" value="<?=((isset($_GET['edit']))?'Измени':'Додај');?> Категорија" class="btn btn-success">
 
           </div>
       </form>
@@ -128,8 +128,8 @@ if(isset($_GET['edit'])){
     <div class="col-md-6">
         <table class="table table-bordered">
             <thead>
-            <th>Category</th>
-            <th>Parent</th>
+            <th>Категорија</th>
+            <th>Родител</th>
             <th></th>
             </thead>
             <tbody>

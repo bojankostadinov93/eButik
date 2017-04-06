@@ -5,6 +5,7 @@
 
             <li><a href="brands.php">Brands</a> </li>
             <li><a href="categories.php">Categories</a> </li>
+            <li><a href="products.php">Products</a> </li>
 
 
           <!--  <li class="dropdown">
