@@ -3,31 +3,161 @@
 require_once $_SERVER['DOCUMENT_ROOT'].'/eButik/core/init.php';// ovoa mu prae PATH na products.php
 include 'includes/head.php';
 include 'includes/navigation.php';
-if(isset($_GET['add'])){
+
+//brisenje na produkt
+if(isset($_GET['delete'])){
+    $id= sanitize($_GET['delete']);
+    $db->query("UPDATE products SET deleted=1 WHERE id='$id'");
+    header('Location:products.php');
+}
+
+$dbpath='';
+if(isset($_GET['add'])||isset($_GET['edit'])){
     $brandQuery=$db->query("SELECT * FROM brand ORDER BY brand");
-    $parentQuery=$db->query("SELECT * FROM categories WHERE parent=0 ORDER BY category")
+    $parentQuery=$db->query("SELECT * FROM categories WHERE parent=0 ORDER BY category");
+    $title=((isset($_POST['title'])&& $_POST['title']!='')?sanitize($_POST['title']):'');// ovoa ga prae 5 pati za da kd praves edite u texbokso da gi zeme veke postoeckite podatoci
+    $brand=((isset($_POST['brand'])&& $_POST['brand']!='')?sanitize($_POST['brand']):'');
+    $parent=((isset($_POST['parent'])&& $_POST['parent']!='')?sanitize($_POST['parent']):'');
+    $category=((isset($_POST['child'])&& !empty($_POST['child']))?sanitize($_POST['child']):'');
+    $price=((isset($_POST['price'])&& $_POST['price']!='')?sanitize($_POST['price']):'');
+    $list_price=((isset($_POST['list_price'])&& $_POST['list_price']!='')?sanitize($_POST['list_price']):'');
+    $description=((isset($_POST['description'])&& $_POST['description']!='')?sanitize($_POST['description']):'');
+    $sizes=((isset($_POST['sizes'])&& $_POST['sizes']!='')?sanitize($_POST['sizes']):'');
+    $sizes=rtrim($sizes,',');
+    $saved_image='';
+
+    if(isset($_GET['edit'])){//ovoa ga prave za da kd pretisnes edit na produkto kd ke te prefrle u editoro veke da ga ima istio title naslov
+        $edit_id=(int)$_GET['edit'];
+        $productResults=$db->query("SELECT * FROM products WHERE id= '$edit_id'");
+        $product=mysqli_fetch_assoc($productResults);
+        if(isset($_GET['delete_image'])){
+            $image_url=$_SERVER['DOCUMENT_ROOT'].$product['image'];echo $image_url;
+            unlink($image_url);
+            $db->query("UPDATE products SET image ='' WHERE id='$edit_id'");
+            header('Location:products.php?edit='.$edit_id);
+        }
+        $category=((isset($_POST['child'])&& $_POST['child']!='')?sanitize($_POST['child']):$product['categories']);
+        $title=((isset($_POST['title'])&& !empty($_POST['title']))?sanitize($_POST['title']):$product['title']);
+        $brand=((isset($_POST['brand'])&& !empty($_POST['brand']))?sanitize($_POST['brand']):$product['brand']);
+        $parentQ=$db->query("SELECT * FROM categories WHERE id='$category'");
+        $parentResult=mysqli_fetch_assoc($parentQ);
+
+        $parent=((isset($_POST['parent'])&& !empty($_POST['parent']))?sanitize($_POST['parent']):$parentResult['parent']);
+        $price=((isset($_POST['price'])&& !empty($_POST['price']))?sanitize($_POST['price']):$product['price']);
+        $list_price=((isset($_POST['list_price'])&& !empty($_POST['list_price']))?sanitize($_POST['list_price']):$product['list_price']);
+        $description=((isset($_POST['description'])&& !empty($_POST['description']))?sanitize($_POST['description']):$product['description']);
+        $sizes=((isset($_POST['sizes'])&& !empty($_POST['sizes']))?sanitize($_POST['sizes']):$product['sizes']);
+        $sizes=rtrim($sizes,',');
+        $saved_image=(($product['image']!='')?$product['image']:'');
+        $dbpath=$saved_image;
+    }
+
+    if(!empty($sizes)){
+        $sizeString=sanitize($sizes);
+        $sizeString=rtrim($sizeString,',');
+        $sizesArray=explode(',', $sizeString);
+        $sArray=array();
+        $qArray=array();
+        foreach($sizesArray as $ss){
+            $s=explode(':',$ss);
+            $sArray[]=$s[0];
+            $qArray[]=$s[1];
+        }
+    }else{$sizesArray=array();}
+
+
+    if($_POST){
+
+
+        $dbpath='';
+        $errors=array();
+        if(!empty($_POST['sizes'])){
+            $sizeString=sanitize($_POST['sizes']);
+            $sizeString=rtrim($sizeString,',');
+            $sizesArray=explode(',', $sizeString);
+            $sArray=array();
+            $qArray=array();
+            foreach($sizesArray as $ss){
+                $s=explode(':',$ss);
+                $sArray[]=$s[0];
+                $qArray[]=$s[1];
+            }
+        }else{$sizesArray=array();}
+        $required= array('title','brand','price','parent','child','sizes');
+        foreach($required as $field){
+            if($_POST[$field]== ''){
+                $errors[]='Сите полиња треба да бидат потполнети';
+                break;
+            }
+        }
+        if(!empty($_FILES)){//validacija prave
+            $photo=$_FILES['photo'];
+            $name=$photo['name'];
+            $nameArray= explode('.',$name);
+            $fileName=$nameArray[0];
+            @$fileExt=$nameArray[1];
+            $mime= explode('/' , $photo['type']);
+            $mimeType=$mime[0];
+            @$mimeExt=$mime[1];// ne znam zaso ali javuva greska
+            $tmpLoc=$photo['tmp_name'];
+            $fileSize=$photo['size'];
+            $allowed=array('png','jpg','jpeg','gif');
+            $uploadName=md5(microtime()).'.'.$fileExt;
+            $uploadPath=BASEURL.'images/products/'.$uploadName;
+            $dbpath='/eButik/images/products/'.$uploadName;
+            if($mimeType!='image'){
+                $errors[]='Датотеката мора да биде слика';
+            }
+            if(!in_array($fileExt,$allowed)){
+                    $errors[]='Сликата мора да биде png,jpg,jpeg или gif формат';
+            }
+            if($fileSize>15000000){
+                $errors[]='Големината на сликата мора да биде под 15MB';
+            }
+          if($fileExt !=$mimeExt &&($mimeExt=='jpeg'&&$fileExt !='jpg')){//  istoto i tuka profolzuva
+                $errors[]='File extension does not match the file';
+           }
+
+            }
+        if(!empty($errors)){
+            echo display_errors($errors);
+        }else{
+            //upload files and insetrt in database
+            move_uploaded_file( $tmpLoc , $uploadPath);
+            $insertSql="INSERT INTO products (title,price,list_price,brand,categories,sizes,image,description)
+              VALUES ('$title','$price','$list_price','$brand','$category','$sizes','$dbpath','$description')";
+            if(isset($_GET['edit'])){
+                $insertSql="UPDATE products SET title='$title',price='$price',list_price='$list_price',brand='$brand',categories='$category',sizes='$sizes',image='$dbpath', description='$description'
+                            WHERE id='$edit_id'";
+            }
+            $db->query($insertSql);
+            header('Location:products.php');
+        }
+    }
+
 ?>
-<h2 class="text-center">Додај нов продукт</h2><hr>
-    <form action="products.php?add=1" method="post" enctype="multipart/form-data"><!--enctype ti e poso ke se dodava i sliki i trista gluposti-->
+<h2 class="text-center" ><?=((isset($_GET['edit']))?'Измени':'Додај нов')?> продукт</h2><hr>
+    <form action="products.php?<?=((isset($_GET['edit']))?'edit='.$edit_id:'add=1')?>" method="post" enctype="multipart/form-data"><!--enctype ti e poso ke se dodava i sliki i trista gluposti,
+    znaci za da bide fleksibilno se menjava i form action za da koga e edit da bide edit koga e add da bide add, kaj add ostanuva da e =1 poso ne ni e bitno no za edit moramo da ga zememo id to zatoa gore deklariramo editid promenliva -->
         <div class="form-group col-md-3">
             <label for="title">Наслов:</label>
-            <input type="text" name="title" class="form-control" id="title" value="<?=((isset($_POST['title']))?sanitize($_POST['title']):'');?>">
+            <input type="text" name="title" class="form-control" id="title" value="<?=$title;?>">
         </div>
         <div class="form-group col-md-3">
             <label for="brand">Бренд:</label>
             <select class="form-control" id="brand" name="brand">
-                <option value=""<?=((isset($_POST['brand'])&&  $_POST['brand']=='')?'selected':'');?>></option>
-                <?php while($brand=mysqli_fetch_assoc($brandQuery)):?>
-                    <option value="<?=$brand['id']?>"<?=((isset($_POST['brand'])&& $_POST['brand']==$brand['id'])? 'selected':'')?>><?=$brand['brand'];?></option>
+                <option value=""<?=(($brand=='')?'selected':'');?>></option>
+                <?php while($b=mysqli_fetch_assoc($brandQuery)):?>
+                    <option value="<?=$b['id'];?>"<?=(($brand==$b['id'])? 'selected':'')?>><?=$b['brand'];?></option>
         <?php endwhile;?>
             </select>
         </div>
         <div class="form-group col-md-3">
             <label for="parent">Категорија на родител</label>
             <select class="form-control" id="parent" name="parent">
-                <option value=""<?=((isset($_POST['parent'])&&$_POST['parent'])?'selected':'')?>></option>
-                <?php while($parent=mysqli_fetch_assoc($parentQuery)):?>
-                    <option value="<?=$parent['id'];?> "<?=((isset($_POST['parent'])&&$_POST['parent']==$parent['id'])?'select':'')?>><?=$parent['category'];?></option>
+                <option value=""<?=(($parent=='')?'selected':'');?>></option>
+                <?php while($p=mysqli_fetch_assoc($parentQuery)):?>
+                    <option value="<?=$p['id'];?> "<?=(($parent==$p['id'])?'selected':'')?>><?=$p['category'];?></option>
 
 
         <?php endwhile; ?>
@@ -40,50 +170,69 @@ if(isset($_GET['add'])){
         </div>
         <div class="form btn-group col-md-3">
             <label for="price">Цена</label>
-            <input type="text" id="price" name="price" class="form-control" value="<?=((isset($_POST['price']))?sanitize($_POST['price']):'')?>">
+            <input type="text" id="price" name="price" class="form-control" value="<?=$price;?>">
         </div>
         <div class="form btn-group col-md-3">
-            <label for="price">Стара цена</label>
-            <input type="text" id="list_price" name="list_price" class="form-control" value="<?=((isset($_POST['list_price']))?sanitize($_POST['list_price']):'')?>">
+            <label for="list_price">Стара цена</label>
+            <input type="text" id="list_price" name="list_price" class="form-control" value="<?=$list_price;?>">
         </div>
         <div class="form-group col-md-3">
             <label>Количина и големина</label>
-            <button class="btn btn-default form-control" onlcick="jQuery('#sizesModal').modal('toggle'); return false;">Количина и големина</button>
+            <button class="btn btn-default form-control" onclick="jQuery('#sizesModal').modal('toggle'); return false;">Количина и големина</button>
         </div>
         <div class="form-group col-md-3 ">
             <label for="sizes">Големина и увид на количини</label>
-            <input type="text"class="form-control"  name="sizes" id="sizes" value="<?=((isset($_POST['sizes']))?$_POST['sizes']:'');?>"readonly>
+            <input type="text" class="form-control"  name="sizes" id="sizes" value="<?=$sizes;?>" readonly>
         </div>
         <div class="form-group col-md-6">
+            <?php if($saved_image!=''): ?>
+                <div class="saved-image"><img src="<?=$saved_image;?>" alt="saved_image" /><br>
+                    <a href="products.php?delete_image=1&edit=<?=$edit_id;?>" class="text-danger">Избришете ја сликата</a>
+                </div>
+            <?php else : ?>
             <label for="photo">Слика на продуктот</label>
             <input type="file" name="photo" id="photo" class="form-control">
+            <?php endif;?>
         </div>
         <div class="form-group col-md-6">
             <label for="description">Опис</label>
-            <textarea id="description" name="description" class="form-control" rows="6"><?=((isset($_POST['description']))?sanitize($_POST['description']):'')?></textarea>
+            <textarea id="description" name="description" class="form-control" rows="6"><?=$description;?></textarea>
         </div>
         <div class="col-md-3 pull-right" >
-        <input type="submit" value="Додај продукт" class="form-control btn btn-success ">
+            <a href="products.php" class="btn btn-default">Откажете се</a>
+        <input type="submit" value="<?=((isset($_GET['edit']))?'Измени':'Додај');?> продукт" class=" btn btn-success ">
         </div><div class="clearfix"></div>
     </form>
-    <!-- Modal -->
-    <div class="modal fade" id="sizesModal" tabindex="-1" role="dialog" aria-labelledby="sizesModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
+    <!-- Modal za kd ke pritisne na kolicina i golemina -->
+    <div class="modal fade  " id="sizesModal" tabindex="-1" role="dialog" aria-labelledby="sizesModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <h4 class="modal-title" id="sizesModalLabel">Големина и количина</h4>
                 </div>
                 <div class="modal-body">
-                    ...
+                    <div class="container-fluid">
+                        <?php for($i=1;$i<=12;$i++): ?>
+                       <div class="form-group col-md-4">
+                           <label for="size<?=$i;?>">Големина </label>
+                           <input type="text" name="size <?=$i;?>" id="size<?=$i;?>" value="<?=((!empty($sArray[$i-1]))?$sArray[$i-1]:'')?>" class="form-control">
+                       </div>
+                       <div class="form-group col-md-2">
+                           <label for="qty<?=$i;?>">Количина: </label>
+                           <input type="number" name="size <?=$i;?>" id="qty<?=$i;?>" value="<?=((!empty($qArray[$i-1]))?$qArray[$i-1]:'')?>" min="0" class="form-control">
+                       </div>
+                        <?php endfor; ?>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary "onclick="updateSizes();jQuery('#sizesModal').modal('toggle');return false;">Save changes</button>
+                    <button type="button" class="btn btn-primary " onclick="updateSizes();jQuery('#sizesModal').modal('toggle');return false;">Save changes</button>
                 </div>
             </div>
         </div>
     </div>
+
     <?php
 }else{
     $sql ="SELECT * FROM products WHERE deleted !=1";
@@ -124,7 +273,7 @@ if(isset($_GET['featured'])){//ako e pritisnato kopceto
         <tr>
             <td>
                 <a href="products.php?edit=<?=$product['id']?>" class="btn btn-xs btn-default"><span class="glyphicon-pencil"></span></a>
-                <a href="products.php?delete=<?=$product['id']?>" class="btn btn-xs btn-default"><span class="glyphicon-remove-sign"></span></a>
+                <a href="products.php?delete=<?=$product['id']?>" class="btn btn-xs btn-default"><span class="glyphicon glyphicon-remove-circle"></span></a>
             </td>
             <td><?= $product['title']?></td>
             <td><?= money($product['price']);?></td>
@@ -145,6 +294,11 @@ if(isset($_GET['featured'])){//ako e pritisnato kopceto
 }
 include 'includes/footer.php';
 ?>
+<script>
+    jQuery('document').ready(function(){
+        get_child_options('<?=$category;?>');
 
+        });
+</script>
 
 

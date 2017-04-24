@@ -2,14 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="26cf36a3-2b0a-4b99-98c2-2ac2715577cb" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/parsers/child_categories.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/products.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/categories.php" afterPath="$PROJECT_DIR$/admin/categories.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/includes/footer.php" afterPath="$PROJECT_DIR$/admin/includes/footer.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/includes/navigation.php" afterPath="$PROJECT_DIR$/admin/includes/navigation.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/parsers/child_categories.php" afterPath="$PROJECT_DIR$/admin/parsers/child_categories.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/products.php" afterPath="$PROJECT_DIR$/admin/products.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/main.css" afterPath="$PROJECT_DIR$/css/main.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/helpers/helpers.php" afterPath="$PROJECT_DIR$/helpers/helpers.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/includes/detailmodal.php" afterPath="$PROJECT_DIR$/includes/detailmodal.php" />
     </list>
     <ignored path="eButik.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -38,73 +36,78 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="categories.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/admin/categories.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="136" column="14" selection-start-line="136" selection-start-column="12" selection-end-line="136" selection-end-column="14" />
-              <folding>
-                <marker date="1491272590871" expanded="true" signature="141:180" placeholder="SELECT * FRO..categories..." />
-                <marker date="1491272590871" expanded="true" signature="412:456" placeholder="SELECT * FRO..categories..." />
-                <marker date="1491272590871" expanded="true" signature="884:933" placeholder="DELETE FROM ..." />
-                <marker date="1491272590871" expanded="true" signature="979:1023" placeholder="DELETE FROM ..." />
-                <marker date="1491272590871" expanded="true" signature="1245:1296" placeholder="SELECT * FRO..categories..." />
-                <marker date="1491272590871" expanded="true" signature="1245:1321" placeholder="SELECT * FRO..categories..." />
-                <marker date="1491272590871" expanded="true" signature="1406:1498" placeholder="SELECT * FRO..categories..." />
-                <marker date="1491272590871" expanded="true" signature="2219:2295" placeholder="INSERT INTO categories..." />
-                <marker date="1491272590871" expanded="true" signature="2356:2390" placeholder="UPDATE categ..." />
-                <marker date="1491272590871" expanded="true" signature="2356:2391" placeholder="UPDATE categ..." />
-                <marker date="1491272590871" expanded="true" signature="2356:2425" placeholder="UPDATE categ..." />
-                <marker date="1491272590871" expanded="true" signature="2356:2435" placeholder="UPDATE categ..." />
-                <marker date="1491272590871" expanded="true" signature="2356:2436" placeholder="UPDATE categ..." />
-                <marker date="1491272590871" expanded="true" signature="4511:4550" placeholder="SELECT * FRO..categories..." />
-                <marker date="1491272590871" expanded="true" signature="4717:4767" placeholder="SELECT * FRO..categories..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/admin/index.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="10" column="2" selection-start-line="10" selection-start-column="2" selection-end-line="10" selection-end-column="2" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="products.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="products.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/admin/products.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-16.846153">
-              <caret line="81" column="148" selection-start-line="81" selection-start-column="148" selection-end-line="81" selection-end-column="148" />
+            <state vertical-scroll-proportion="0.45857418">
+              <caret line="92" column="46" selection-start-line="92" selection-start-column="46" selection-end-line="92" selection-end-column="46" />
               <folding>
-                <marker date="1491441319665" expanded="true" signature="224:243" placeholder="SELECT * FRO..brand..." />
-                <marker date="1491441319665" expanded="true" signature="224:258" placeholder="SELECT * FRO..brand..." />
-                <marker date="1491441319665" expanded="true" signature="291:348" placeholder="SELECT * FRO..categories..." />
-                <marker date="1491441319665" expanded="true" signature="4880:4920" placeholder="SELECT * FRO..products..." />
-                <marker date="1491441319665" expanded="true" signature="5089:5108" placeholder="UPdAtE produ..." />
-                <marker date="1491441319665" expanded="true" signature="5089:5129" placeholder="UPDATE produ..." />
-                <marker date="1491441319665" expanded="true" signature="5089:5144" placeholder="UPDATE produ..." />
-                <marker date="1491441319665" expanded="true" signature="5471:5600" placeholder="..." />
-                <marker date="1491441319665" expanded="true" signature="5612:5688" placeholder="..." />
-                <marker date="1491441319665" expanded="true" signature="5729:5764" placeholder="SELECT * FRO..categories..." />
-                <marker date="1491441319665" expanded="true" signature="5909:5955" placeholder="SELECT * FRO..categories..." />
+                <marker date="1492875935362" expanded="true" signature="274:314" placeholder="UPDATE produ..." />
+                <marker date="1492875935362" expanded="true" signature="274:315" placeholder="UPDATE produ..." />
+                <marker date="1492875935362" expanded="true" signature="274:318" placeholder="UPDATE produ..." />
+                <marker date="1492875935362" expanded="true" signature="274:372" placeholder="UPDATE produ..." />
+                <marker date="1492875935362" expanded="true" signature="449:468" placeholder="SELECT * FRO..brand..." />
+                <marker date="1492875935362" expanded="true" signature="449:483" placeholder="SELECT * FRO..brand..." />
+                <marker date="1492875935362" expanded="true" signature="516:573" placeholder="SELECT * FRO..categories..." />
+                <marker date="1492875935362" expanded="true" signature="1711:1743" placeholder="SELECT * FRO..products..." />
+                <marker date="1492875935362" expanded="true" signature="1711:1745" placeholder="SELECT * FRO..products..." />
+                <marker date="1492875935362" expanded="true" signature="1711:1753" placeholder="SELECT * FRO..products..." />
+                <marker date="1492875935362" expanded="true" signature="1711:1754" placeholder="SELECT * FRO..products..." />
+                <marker date="1492875935362" expanded="true" signature="1994:2043" placeholder="UPDATE produ..." />
+                <marker date="1492875935362" expanded="true" signature="2489:2534" placeholder="SELECT * FRO..categories..." />
+                <marker date="1492875935362" expanded="true" signature="2495:2534" placeholder="select * fro..categories..." />
+                <marker date="1492875935362" expanded="true" signature="5986:6072" placeholder="INSERT INTO products..." />
+                <marker date="1492875935362" expanded="true" signature="5986:6095" placeholder="INSERT INTO products..." />
+                <marker date="1492875935362" expanded="true" signature="5986:6182" placeholder="INSERT INTO products..." />
+                <marker date="1492875935362" expanded="true" signature="6251:6277" placeholder="UPDATE produ..." />
+                <marker date="1492875935362" expanded="true" signature="6251:6285" placeholder="UPDATE produ..." />
+                <marker date="1492875935362" expanded="true" signature="6251:6286" placeholder="UPDATE produ..." />
+                <marker date="1492875935362" expanded="true" signature="6251:6300" placeholder="UPDATE produ..." />
+                <marker date="1492875935362" expanded="true" signature="6251:6325" placeholder="UPDATE produ..." />
+                <marker date="1492875935362" expanded="true" signature="6251:6340" placeholder="UPDATE produ..." />
+                <marker date="1492875935362" expanded="true" signature="6251:6363" placeholder="UPDATE produ..." />
+                <marker date="1492875935362" expanded="true" signature="6251:6378" placeholder="UPDATE produ..." />
+                <marker date="1492875935362" expanded="true" signature="6251:6386" placeholder="UPDATE produ..." />
+                <marker date="1492875935362" expanded="true" signature="6251:6393" placeholder="UPDATE produ..." />
+                <marker date="1492875935362" expanded="true" signature="6251:6409" placeholder="UPDATE produ..." />
+                <marker date="1492875935362" expanded="true" signature="6251:6470" placeholder="UPDATE produ..." />
+                <marker date="1492875935362" expanded="true" signature="6811:7288" placeholder="..." />
+                <marker date="1492875935362" expanded="true" signature="6816:7109" placeholder="..." />
+                <marker date="1492875935362" expanded="true" signature="7153:7288" placeholder="..." />
+                <marker date="1492875935362" expanded="true" signature="7355:7506" placeholder="..." />
+                <marker date="1492875935362" expanded="true" signature="7467:7506" placeholder="..." />
+                <marker date="1492875935362" expanded="true" signature="7834:8003" placeholder="..." />
+                <marker date="1492875935362" expanded="true" signature="7964:8003" placeholder="..." />
+                <marker date="1492875935362" expanded="true" signature="8337:8486" placeholder="..." />
+                <marker date="1492875935362" expanded="true" signature="8532:8664" placeholder="..." />
+                <marker date="1492875935362" expanded="true" signature="8735:8888" placeholder="..." />
+                <marker date="1492875935362" expanded="true" signature="8960:9081" placeholder="..." />
+                <marker date="1492875935362" expanded="true" signature="10642:11437" placeholder="..." />
+                <marker date="1492875935362" expanded="true" signature="10686:11437" placeholder="..." />
+                <marker date="1492875935362" expanded="true" signature="10726:11437" placeholder="..." />
+                <marker date="1492875935362" expanded="true" signature="10769:11027" placeholder="..." />
+                <marker date="1492875935362" expanded="true" signature="11068:11437" placeholder="..." />
+                <marker date="1492875935362" expanded="true" signature="11118:11437" placeholder="..." />
+                <marker date="1492875935362" expanded="true" signature="11231:11437" placeholder="..." />
+                <marker date="1492875935362" expanded="true" signature="11552:11759" placeholder="..." />
+                <marker date="1492875935362" expanded="true" signature="11959:12159" placeholder="..." />
+                <marker date="1492875935362" expanded="true" signature="12325:12365" placeholder="SELECT * FRO..products..." />
+                <marker date="1492875935362" expanded="true" signature="12534:12553" placeholder="UPdAtE produ..." />
+                <marker date="1492875935362" expanded="true" signature="12534:12574" placeholder="UPDATE produ..." />
+                <marker date="1492875935362" expanded="true" signature="12534:12589" placeholder="UPDATE produ..." />
+                <marker date="1492875935362" expanded="true" signature="13174:13209" placeholder="SELECT * FRO..categories..." />
+                <marker date="1492875935362" expanded="true" signature="13354:13400" placeholder="SELECT * FRO..categories..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="child_categories.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/admin/parsers/child_categories.php">
+      <file leaf-file-name="main.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/css/main.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.18312387">
-              <caret line="6" column="26" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
-              <folding>
-                <marker date="1491354085563" expanded="true" signature="129:178" placeholder="SELECT * FRO..categories..." />
-                <marker date="1491354085563" expanded="true" signature="129:197" placeholder="SELECT * FRO..categories..." />
-              </folding>
+            <state vertical-scroll-proportion="-18.807692">
+              <caret line="69" column="16" selection-start-line="69" selection-start-column="16" selection-end-line="69" selection-end-column="16" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -112,9 +115,22 @@
       <file leaf-file-name="footer.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin/includes/footer.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.230769">
-              <caret line="8" column="30" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
+            <state vertical-scroll-proportion="-12.269231">
+              <caret line="30" column="61" selection-start-line="30" selection-start-column="61" selection-end-line="30" selection-end-column="61" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="child_categories.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/parsers/child_categories.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-5.8846154">
+              <caret line="9" column="87" selection-start-line="9" selection-start-column="87" selection-end-line="9" selection-end-column="87" />
+              <folding>
+                <marker date="1492790781745" expanded="true" signature="169:218" placeholder="SELECT * FRO..categories..." />
+                <marker date="1492790781745" expanded="true" signature="169:237" placeholder="SELECT * FRO..categories..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -140,7 +156,6 @@
         <option value="$PROJECT_DIR$/core/mongodb.php" />
         <option value="$PROJECT_DIR$/includes/navigation.php" />
         <option value="$PROJECT_DIR$/idex.php" />
-        <option value="$PROJECT_DIR$/includes/detailmodal.php" />
         <option value="$PROJECT_DIR$/includes/headerfull.php" />
         <option value="$PROJECT_DIR$/admin/includes/head.php" />
         <option value="$PROJECT_DIR$/admin/index.php" />
@@ -151,8 +166,9 @@
         <option value="$PROJECT_DIR$/admin/categories.php" />
         <option value="$PROJECT_DIR$/admin/includes/navigation.php" />
         <option value="$PROJECT_DIR$/helpers/helpers.php" />
-        <option value="$PROJECT_DIR$/css/main.css" />
+        <option value="$PROJECT_DIR$/includes/detailmodal.php" />
         <option value="$PROJECT_DIR$/admin/parsers/child_categories.php" />
+        <option value="$PROJECT_DIR$/css/main.css" />
         <option value="$PROJECT_DIR$/admin/includes/footer.php" />
         <option value="$PROJECT_DIR$/admin/products.php" />
       </list>
@@ -168,10 +184,28 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1382" />
-    <option name="height" value="744" />
+    <option name="x" value="-7" />
+    <option name="width" value="1378" />
+    <option name="height" value="735" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+          <State>
+            <id>SQL</id>
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>SQL</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -198,7 +232,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -255,7 +289,49 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="images" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="eButik" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="eButik" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="helpers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="eButik" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="eButik" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="eButik" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="eButik" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -311,14 +387,14 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="Errors" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
   <component name="RunManager">
@@ -365,27 +441,27 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-7" y="0" width="1378" height="735" extended-state="1" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25037822" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24962063" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32977098" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32824427" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -400,24 +476,19 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/admin/products.php</url>
+          <line>279</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="4" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/includes/headerfull.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="6" column="21" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/idex.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -429,7 +500,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="1" column="25" selection-start-line="1" selection-start-column="25" selection-end-line="1" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -493,7 +563,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="1" column="25" selection-start-line="1" selection-start-column="25" selection-end-line="1" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -609,13 +678,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/mongodb.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.18613139">
-          <caret line="6" column="5" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/includes/leftbar.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.030965392">
@@ -627,13 +689,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/includes/detailmodal.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-17.846153">
-          <caret line="86" column="47" selection-start-line="86" selection-start-column="47" selection-end-line="86" selection-end-column="47" />
         </state>
       </provider>
     </entry>
@@ -686,33 +741,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="2" selection-start-line="10" selection-start-column="2" selection-end-line="10" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/admin/includes/navigation.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.21326165">
           <caret line="7" column="33" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-18.846153">
-          <caret line="65" column="16" selection-start-line="65" selection-start-column="16" selection-end-line="65" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/includes/footer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.48114902">
-          <caret line="33" column="28" selection-start-line="33" selection-start-column="28" selection-end-line="33" selection-end-column="28" />
         </state>
       </provider>
     </entry>
@@ -727,7 +759,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.4578097">
           <caret line="15" column="101" selection-start-line="15" selection-start-column="101" selection-end-line="15" selection-end-column="101" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -735,14 +766,74 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.18312387">
           <caret line="6" column="48" selection-start-line="6" selection-start-column="48" selection-end-line="6" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/mongodb.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.06104129">
+          <caret line="2" column="29" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="10" column="2" selection-start-line="10" selection-start-column="2" selection-end-line="10" selection-end-column="2" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/detailmodal.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.390681">
+          <caret line="43" column="65" selection-start-line="43" selection-start-column="65" selection-end-line="43" selection-end-column="65" />
+          <folding>
+            <marker date="1492737035105" expanded="true" signature="76:113" placeholder="SELECT * FRO..products..." />
+            <marker date="1492737035105" expanded="true" signature="335:379" placeholder="SELECT brand..brand..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/706df099-ceb5-4982-8136-013109b14011/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/footer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.307693">
+          <caret line="33" column="28" selection-start-line="33" selection-start-column="28" selection-end-line="33" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-18.807692">
+          <caret line="69" column="16" selection-start-line="69" selection-start-column="16" selection-end-line="69" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/parsers/child_categories.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.8846154">
+          <caret line="9" column="87" selection-start-line="9" selection-start-column="87" selection-end-line="9" selection-end-column="87" />
+          <folding>
+            <marker date="1492790781745" expanded="true" signature="169:218" placeholder="SELECT * FRO..categories..." />
+            <marker date="1492790781745" expanded="true" signature="169:237" placeholder="SELECT * FRO..categories..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/admin/categories.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="136" column="14" selection-start-line="136" selection-start-column="12" selection-end-line="136" selection-end-column="14" />
+        <state vertical-scroll-proportion="1.6751825">
+          <caret line="54" column="47" selection-start-line="54" selection-start-column="47" selection-end-line="54" selection-end-column="47" />
           <folding>
             <marker date="1491272590871" expanded="true" signature="141:180" placeholder="SELECT * FRO..categories..." />
             <marker date="1491272590871" expanded="true" signature="412:456" placeholder="SELECT * FRO..categories..." />
@@ -763,41 +854,74 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/products.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-16.846153">
-          <caret line="81" column="148" selection-start-line="81" selection-start-column="148" selection-end-line="81" selection-end-column="148" />
-          <folding>
-            <marker date="1491441319665" expanded="true" signature="224:243" placeholder="SELECT * FRO..brand..." />
-            <marker date="1491441319665" expanded="true" signature="224:258" placeholder="SELECT * FRO..brand..." />
-            <marker date="1491441319665" expanded="true" signature="291:348" placeholder="SELECT * FRO..categories..." />
-            <marker date="1491441319665" expanded="true" signature="4880:4920" placeholder="SELECT * FRO..products..." />
-            <marker date="1491441319665" expanded="true" signature="5089:5108" placeholder="UPdAtE produ..." />
-            <marker date="1491441319665" expanded="true" signature="5089:5129" placeholder="UPDATE produ..." />
-            <marker date="1491441319665" expanded="true" signature="5089:5144" placeholder="UPDATE produ..." />
-            <marker date="1491441319665" expanded="true" signature="5471:5600" placeholder="..." />
-            <marker date="1491441319665" expanded="true" signature="5612:5688" placeholder="..." />
-            <marker date="1491441319665" expanded="true" signature="5729:5764" placeholder="SELECT * FRO..categories..." />
-            <marker date="1491441319665" expanded="true" signature="5909:5955" placeholder="SELECT * FRO..categories..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/admin/includes/footer.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.230769">
-          <caret line="8" column="30" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
+        <state vertical-scroll-proportion="-12.269231">
+          <caret line="30" column="61" selection-start-line="30" selection-start-column="61" selection-end-line="30" selection-end-column="61" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/parsers/child_categories.php">
+    <entry file="file://$PROJECT_DIR$/admin/products.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.18312387">
-          <caret line="6" column="26" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
+        <state vertical-scroll-proportion="0.45857418">
+          <caret line="92" column="46" selection-start-line="92" selection-start-column="46" selection-end-line="92" selection-end-column="46" />
           <folding>
-            <marker date="1491354085563" expanded="true" signature="129:178" placeholder="SELECT * FRO..categories..." />
-            <marker date="1491354085563" expanded="true" signature="129:197" placeholder="SELECT * FRO..categories..." />
+            <marker date="1492875935362" expanded="true" signature="274:314" placeholder="UPDATE produ..." />
+            <marker date="1492875935362" expanded="true" signature="274:315" placeholder="UPDATE produ..." />
+            <marker date="1492875935362" expanded="true" signature="274:318" placeholder="UPDATE produ..." />
+            <marker date="1492875935362" expanded="true" signature="274:372" placeholder="UPDATE produ..." />
+            <marker date="1492875935362" expanded="true" signature="449:468" placeholder="SELECT * FRO..brand..." />
+            <marker date="1492875935362" expanded="true" signature="449:483" placeholder="SELECT * FRO..brand..." />
+            <marker date="1492875935362" expanded="true" signature="516:573" placeholder="SELECT * FRO..categories..." />
+            <marker date="1492875935362" expanded="true" signature="1711:1743" placeholder="SELECT * FRO..products..." />
+            <marker date="1492875935362" expanded="true" signature="1711:1745" placeholder="SELECT * FRO..products..." />
+            <marker date="1492875935362" expanded="true" signature="1711:1753" placeholder="SELECT * FRO..products..." />
+            <marker date="1492875935362" expanded="true" signature="1711:1754" placeholder="SELECT * FRO..products..." />
+            <marker date="1492875935362" expanded="true" signature="1994:2043" placeholder="UPDATE produ..." />
+            <marker date="1492875935362" expanded="true" signature="2489:2534" placeholder="SELECT * FRO..categories..." />
+            <marker date="1492875935362" expanded="true" signature="2495:2534" placeholder="select * fro..categories..." />
+            <marker date="1492875935362" expanded="true" signature="5986:6072" placeholder="INSERT INTO products..." />
+            <marker date="1492875935362" expanded="true" signature="5986:6095" placeholder="INSERT INTO products..." />
+            <marker date="1492875935362" expanded="true" signature="5986:6182" placeholder="INSERT INTO products..." />
+            <marker date="1492875935362" expanded="true" signature="6251:6277" placeholder="UPDATE produ..." />
+            <marker date="1492875935362" expanded="true" signature="6251:6285" placeholder="UPDATE produ..." />
+            <marker date="1492875935362" expanded="true" signature="6251:6286" placeholder="UPDATE produ..." />
+            <marker date="1492875935362" expanded="true" signature="6251:6300" placeholder="UPDATE produ..." />
+            <marker date="1492875935362" expanded="true" signature="6251:6325" placeholder="UPDATE produ..." />
+            <marker date="1492875935362" expanded="true" signature="6251:6340" placeholder="UPDATE produ..." />
+            <marker date="1492875935362" expanded="true" signature="6251:6363" placeholder="UPDATE produ..." />
+            <marker date="1492875935362" expanded="true" signature="6251:6378" placeholder="UPDATE produ..." />
+            <marker date="1492875935362" expanded="true" signature="6251:6386" placeholder="UPDATE produ..." />
+            <marker date="1492875935362" expanded="true" signature="6251:6393" placeholder="UPDATE produ..." />
+            <marker date="1492875935362" expanded="true" signature="6251:6409" placeholder="UPDATE produ..." />
+            <marker date="1492875935362" expanded="true" signature="6251:6470" placeholder="UPDATE produ..." />
+            <marker date="1492875935362" expanded="true" signature="6811:7288" placeholder="..." />
+            <marker date="1492875935362" expanded="true" signature="6816:7109" placeholder="..." />
+            <marker date="1492875935362" expanded="true" signature="7153:7288" placeholder="..." />
+            <marker date="1492875935362" expanded="true" signature="7355:7506" placeholder="..." />
+            <marker date="1492875935362" expanded="true" signature="7467:7506" placeholder="..." />
+            <marker date="1492875935362" expanded="true" signature="7834:8003" placeholder="..." />
+            <marker date="1492875935362" expanded="true" signature="7964:8003" placeholder="..." />
+            <marker date="1492875935362" expanded="true" signature="8337:8486" placeholder="..." />
+            <marker date="1492875935362" expanded="true" signature="8532:8664" placeholder="..." />
+            <marker date="1492875935362" expanded="true" signature="8735:8888" placeholder="..." />
+            <marker date="1492875935362" expanded="true" signature="8960:9081" placeholder="..." />
+            <marker date="1492875935362" expanded="true" signature="10642:11437" placeholder="..." />
+            <marker date="1492875935362" expanded="true" signature="10686:11437" placeholder="..." />
+            <marker date="1492875935362" expanded="true" signature="10726:11437" placeholder="..." />
+            <marker date="1492875935362" expanded="true" signature="10769:11027" placeholder="..." />
+            <marker date="1492875935362" expanded="true" signature="11068:11437" placeholder="..." />
+            <marker date="1492875935362" expanded="true" signature="11118:11437" placeholder="..." />
+            <marker date="1492875935362" expanded="true" signature="11231:11437" placeholder="..." />
+            <marker date="1492875935362" expanded="true" signature="11552:11759" placeholder="..." />
+            <marker date="1492875935362" expanded="true" signature="11959:12159" placeholder="..." />
+            <marker date="1492875935362" expanded="true" signature="12325:12365" placeholder="SELECT * FRO..products..." />
+            <marker date="1492875935362" expanded="true" signature="12534:12553" placeholder="UPdAtE produ..." />
+            <marker date="1492875935362" expanded="true" signature="12534:12574" placeholder="UPDATE produ..." />
+            <marker date="1492875935362" expanded="true" signature="12534:12589" placeholder="UPDATE produ..." />
+            <marker date="1492875935362" expanded="true" signature="13174:13209" placeholder="SELECT * FRO..categories..." />
+            <marker date="1492875935362" expanded="true" signature="13354:13400" placeholder="SELECT * FRO..categories..." />
           </folding>
         </state>
       </provider>
