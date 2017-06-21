@@ -2,12 +2,12 @@
     <div class="container">
         <a href="/eButik/admin/index.php"class="navbar-brand">Fashion Boutique Admin</a>
         <ul class="nav navbar-nav">
-
-            <li><a href="brands.php">Brands</a> </li>
-            <li><a href="categories.php">Categories</a> </li>
-            <li><a href="products.php">Products</a> </li>
+            <li><a href="index.php">Почетна Админ</a> </li>
+            <li><a href="brands.php">Брендови</a> </li>
+            <li><a href="categories.php">Категории</a> </li>
+            <li><a href="products.php">Продукти</a> </li>
             <?php if(has_permission('admin')):?>
-            <li><a href="users.php">Users</a> </li>
+            <li><a href="users.php">Корисници</a> </li>
             <?php endif;?>
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Здраво <?=$user_data['first'];?>!

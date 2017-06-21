@@ -1,5 +1,6 @@
 <?php
 $db= mysqli_connect ('127.0.0.1', 'root', '', 'butik');
+mysqli_set_charset($db,"UTF8");
 
 if(mysqli_connect_errno()){
     echo 'Извинете, не е конектирано со датабазата:'.mysqli_connect_error();
@@ -9,6 +10,14 @@ session_start();
 
 require_once $_SERVER['DOCUMENT_ROOT'].'/eButik/config.php';
 require_once BASEURL.'helpers/helpers.php';
+require_once BASEURL.'vendor/autoload.php';
+
+$cart_id='';
+if(isset($_COOKIE[CART_COOKIE])){//proveruva dalie ima kolace
+    $cart_id= sanitize($_COOKIE[CART_COOKIE]);
+}else{
+
+}
 
 if(isset($_SESSION['SBUser'])){
     $user_id=$_SESSION['SBUser'];

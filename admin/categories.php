@@ -25,7 +25,7 @@ if(isset($_GET['edit'])&& !empty($_GET['edit'])) {
 if(isset($_GET['delete'])&& !empty($_GET['delete'])){
     $delete_id=(int)$_GET['delete'];
     $delete_id=sanitize($delete_id);
-    $sql="SELECT* FROM categories WHERE id='$delete_id";
+    $sql="SELECT * FROM categories WHERE id='$delete_id";
     $result=$db->query($sql);
     $category=mysqli_fetch_assoc($result);
     if($category['parent']==0){
@@ -146,7 +146,7 @@ if(isset($_GET['edit'])){
                 ?>
             <tr class="bg-primary">
                 <td><?=$parent['category'];?></td>
-                <td>Parent</td>
+                <td>Родител</td>
                 <td>
                     <a href="categories.php?edit=<?=$parent['id'];?>" class="btn btn-xs btn-default"><span class="glyphicon glyphicon-pencil"></span></a>
                     <a href="categories.php?delete=<?=$parent['id'];?>" class="btn btn-xs btn-default"><span class="glyphicon glyphicon-remove-sign"></span></a>

@@ -6,21 +6,17 @@ namespace Composer\Autoload;
 
 class ComposerStaticInit74175162e5b01e70057f0a2733726c95
 {
-    public static $files = array (
-        '3a37ebac017bc098e9a86b35401e7a68' => __DIR__ . '/..' . '/mongodb/mongodb/src/functions.php',
-    );
-
     public static $prefixLengthsPsr4 = array (
-        'M' => 
+        'S' => 
         array (
-            'MongoDB\\' => 8,
+            'Stripe\\' => 7,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'MongoDB\\' => 
+        'Stripe\\' => 
         array (
-            0 => __DIR__ . '/..' . '/mongodb/mongodb/src',
+            0 => __DIR__ . '/..' . '/stripe/stripe-php/lib',
         ),
     );
 

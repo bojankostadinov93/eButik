@@ -1,6 +1,6 @@
 <?php
 
-require_once $_SERVER['DOCUMENT_ROOT'].'/eButik/core/init.php';// ovoa mu prae PATH na products.php
+require_once $_SERVER['DOCUMENT_ROOT'].'/eButik/core/init.php';
 if(!is_logged_in()){
     login_error_redirect();
 }
@@ -29,14 +29,18 @@ if(isset($_GET['add'])||isset($_GET['edit'])){
     $sizes=rtrim($sizes,',');
     $saved_image='';
 
-    if(isset($_GET['edit'])){//ovoa ga prave za da kd pretisnes edit na produkto kd ke te prefrle u editoro veke da ga ima istio title naslov
+    if(isset($_GET['edit'])){ //ovoa ga prave za da kd pretisnes edit na produkto kd ke te prefrle u editoro veke da ga ima istio title naslov
         $edit_id=(int)$_GET['edit'];
         $productResults=$db->query("SELECT * FROM products WHERE id= '$edit_id'");
         $product=mysqli_fetch_assoc($productResults);
         if(isset($_GET['delete_image'])){
-            $image_url=$_SERVER['DOCUMENT_ROOT'].$product['image'];echo $image_url;
+            $imgi=(int)$_GET['imgi']-1;
+            $images=explode(',',$product['image']);
+            $image_url=$_SERVER['DOCUMENT_ROOT'].$images[$imgi];
             unlink($image_url);
-            $db->query("UPDATE products SET image ='' WHERE id='$edit_id'");
+            unset($images[$imgi]);
+            $imageString=implode(',',$images);
+            $db->query("UPDATE products SET image ='{$imageString   }' WHERE id='$edit_id'");
             header('Location:products.php?edit='.$edit_id);
         }
         $category=((isset($_POST['child'])&& $_POST['child']!='')?sanitize($_POST['child']):$product['categories']);
@@ -47,8 +51,8 @@ if(isset($_GET['add'])||isset($_GET['edit'])){
 
         $parent=((isset($_POST['parent'])&& !empty($_POST['parent']))?sanitize($_POST['parent']):$parentResult['parent']);
         $price=((isset($_POST['price'])&& !empty($_POST['price']))?sanitize($_POST['price']):$product['price']);
-        $list_price=((isset($_POST['list_price'])&& !empty($_POST['list_price']))?sanitize($_POST['list_price']):$product['list_price']);
-        $description=((isset($_POST['description'])&& !empty($_POST['description']))?sanitize($_POST['description']):$product['description']);
+        $list_price=((isset($_POST['list_price']) )?sanitize($_POST['list_price']):$product['list_price']);
+        $description=((isset($_POST['description']) )?sanitize($_POST['description']):$product['description']);
         $sizes=((isset($_POST['sizes'])&& !empty($_POST['sizes']))?sanitize($_POST['sizes']):$product['sizes']);
         $sizes=rtrim($sizes,',');
         $saved_image=(($product['image']!='')?$product['image']:'');
@@ -61,18 +65,18 @@ if(isset($_GET['add'])||isset($_GET['edit'])){
         $sizesArray=explode(',', $sizeString);
         $sArray=array();
         $qArray=array();
+        $tArray=array();
         foreach($sizesArray as $ss){
             $s=explode(':',$ss);
             $sArray[]=$s[0];
             $qArray[]=$s[1];
+            @$tArray[]=$s[2];
         }
     }else{$sizesArray=array();}
 
 
     if($_POST){
 
-
-        $dbpath='';
         $errors=array();
         if(!empty($_POST['sizes'])){
             $sizeString=sanitize($_POST['sizes']);
@@ -87,27 +91,35 @@ if(isset($_GET['add'])||isset($_GET['edit'])){
             }
         }else{$sizesArray=array();}
         $required= array('title','brand','price','parent','child','sizes');
+        $allowed=array('png','jpg','jpeg','gif');
+        $uploadPath=array();
+        $tmpLoc=array();
         foreach($required as $field){
             if($_POST[$field]== ''){
                 $errors[]='Сите полиња треба да бидат потполнети';
                 break;
             }
         }
-        if(!empty($_FILES)){//validacija prave
-            $photo=$_FILES['photo'];
-            $name=$photo['name'];
+        $photoCount=count($_FILES['photo']['name']);
+       if($photoCount>0){//validacija prave
+           for($i=0;$i<$photoCount;$i++){
+
+               $name=$_FILES['photo']['name'][$i];
             $nameArray= explode('.',$name);
             $fileName=$nameArray[0];
             @$fileExt=$nameArray[1];
-            $mime= explode('/' , $photo['type']);
+            $mime= explode('/' , $_FILES['photo']['type'][$i]);
             $mimeType=$mime[0];
             @$mimeExt=$mime[1];// ne znam zaso ali javuva greska
-            $tmpLoc=$photo['tmp_name'];
-            $fileSize=$photo['size'];
-            $allowed=array('png','jpg','jpeg','gif');
-            $uploadName=md5(microtime()).'.'.$fileExt;
-            $uploadPath=BASEURL.'images/products/'.$uploadName;
-            $dbpath='/eButik/images/products/'.$uploadName;
+            $tmpLoc[]=$_FILES['photo']['tmp_name'][$i];
+            $fileSize=$_FILES['photo']['size'][$i];
+
+            $uploadName=md5(microtime().$i).'.'.$fileExt;
+            $uploadPath[]=BASEURL.'images/products/'.$uploadName;
+            if($i !=0){
+                $dbpath .=',';
+            }
+            $dbpath.='/eButik/images/products/'.$uploadName;
             if($mimeType!='image'){
                 $errors[]='Датотеката мора да биде слика';
             }
@@ -122,11 +134,24 @@ if(isset($_GET['add'])||isset($_GET['edit'])){
            }
 
             }
+       }
+
         if(!empty($errors)){
             echo display_errors($errors);
         }else{
+            if($photoCount > 0){
+                //upload files and insetrt in database
+
+                for($i=0;$i<$photoCount;$i++) {
+                       move_uploaded_file($tmpLoc[$i], $uploadPath[$i]);
+
+                }
+            }
+
             //upload files and insetrt in database
-            move_uploaded_file( $tmpLoc , $uploadPath);
+          //  if(!empty($_FILES)) {
+            //    move_uploaded_file($tmpLoc, $uploadPath);
+            }
             $insertSql="INSERT INTO products (title,price,list_price,brand,categories,sizes,image,description)
               VALUES ('$title','$price','$list_price','$brand','$category','$sizes','$dbpath','$description')";
             if(isset($_GET['edit'])){
@@ -136,7 +161,7 @@ if(isset($_GET['add'])||isset($_GET['edit'])){
             $db->query($insertSql);
             header('Location:products.php');
         }
-    }
+
 
 ?>
 <h2 class="text-center" ><?=((isset($_GET['edit']))?'Измени':'Додај нов')?> продукт</h2><hr>
@@ -189,12 +214,20 @@ if(isset($_GET['add'])||isset($_GET['edit'])){
         </div>
         <div class="form-group col-md-6">
             <?php if($saved_image!=''): ?>
-                <div class="saved-image"><img src="<?=$saved_image;?>" alt="saved_image" /><br>
-                    <a href="products.php?delete_image=1&edit=<?=$edit_id;?>" class="text-danger">Избришете ја сликата</a>
+                <?php
+                $imgi=1;
+                $images=explode(',',$saved_image)
+                ?>
+                <?php foreach ($images as $image):?>
+                <div class="saved-image col-md-4" ><img src="<?=$image;?>" alt="saved_image" /><br>
+                    <a href="products.php?delete_image=1&edit=<?=$edit_id;?>&imgi=<?=$imgi;?>" class="text-danger">Избришете ја сликата</a>
                 </div>
+                    <?php
+                $imgi++;
+                endforeach;?>
             <?php else : ?>
             <label for="photo">Слика на продуктот</label>
-            <input type="file" name="photo" id="photo" class="form-control">
+            <input type="file" name="photo[]" id="photo" class="form-control" multiple><!--multuple ga prae za da moes da dodavas poveke od edna slika za produkto-->
             <?php endif;?>
         </div>
         <div class="form-group col-md-6">
@@ -217,7 +250,7 @@ if(isset($_GET['add'])||isset($_GET['edit'])){
                 <div class="modal-body">
                     <div class="container-fluid">
                         <?php for($i=1;$i<=12;$i++): ?>
-                       <div class="form-group col-md-4">
+                       <div class="form-group col-md-2">
                            <label for="size<?=$i;?>">Големина </label>
                            <input type="text" name="size <?=$i;?>" id="size<?=$i;?>" value="<?=((!empty($sArray[$i-1]))?$sArray[$i-1]:'')?>" class="form-control">
                        </div>
@@ -225,21 +258,27 @@ if(isset($_GET['add'])||isset($_GET['edit'])){
                            <label for="qty<?=$i;?>">Количина: </label>
                            <input type="number" name="size <?=$i;?>" id="qty<?=$i;?>" value="<?=((!empty($qArray[$i-1]))?$qArray[$i-1]:'')?>" min="0" class="form-control">
                        </div>
+                            <div class="form-group col-md-2">
+                                <label for="threshold<?=$i;?>">Treshold: </label>
+                                <input type="number" name="threshold <?=$i;?>" id="threshold<?=$i;?>" value="<?=((!empty($tArray[$i-1]))?$tArray[$i-1]:'')?>" min="0" class="form-control">
+                            </div>
                         <?php endfor; ?>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary " onclick="updateSizes();jQuery('#sizesModal').modal('toggle');return false;">Save changes</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Откажи се</button>
+                    <button type="button" class="btn btn-primary " onclick="updateSizes();jQuery('#sizesModal').modal('toggle');return false;">Зачувај ги промените</button>
                 </div>
             </div>
         </div>
     </div>
 
     <?php
-}else{
-    $sql ="SELECT * FROM products WHERE deleted !=1";
-$presults=$db->query($sql);
+    }
+    else{
+        $sql = "SELECT * FROM products WHERE deleted !=1";
+        $presults = $db->query($sql);
+
 if(isset($_GET['featured'])){//ako e pritisnato kopceto
     $id=(int)$_GET['id'];
     $featured=(int)$_GET['featured'];
@@ -254,11 +293,11 @@ if(isset($_GET['featured'])){//ako e pritisnato kopceto
 <table class="table table-bordered  table-condensed table-striped">
     <thead>
     <th></th>
-    <th>Product</th>
-    <th>Price</th>
-    <th>Category</th>
-    <th>Featured</th>
-    <th>Sold</th>
+    <th>Продукти</th>
+    <th>Цена</th>
+    <th>Категорија</th>
+    <th>Избрани</th>
+    <th>Продадени</th>
     </thead>
     <tbody>
     <?php while($product=mysqli_fetch_assoc($presults)):

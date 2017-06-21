@@ -89,7 +89,7 @@ if(isset($_POST['add_submit'])){
 
 <table class="table table-bordered table-striped table-auto table-condensed">
     <thead>
-    <th></th><th>Brand</th><th></th>
+    <th></th><th>Бренд</th><th></th>
     </thead>
     <tbody>
     <?php

@@ -15,7 +15,7 @@ $errors=array();
 
 <style>
     body{
-        background-image: url("/eButik/images/headerlogo/background.png ");
+        background-image: url("/eButik/images/headerlogo/pozadina7.jpg ");
         background-size:100vw 100vh ;
         background-attachment: fixed;
     }

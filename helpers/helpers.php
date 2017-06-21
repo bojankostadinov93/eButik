@@ -14,7 +14,7 @@ function sanitize($dirty){
     return htmlentities($dirty,ENT_QUOTES,"UTF-8");// prae funkcija za da kd vnasas html tagovi u texto deka se unasat brendovite da ne bidat funkcionalti html tagovite
 }
 function money($number){//funkcija za da ti gi ga dava $ kaj cenata poso u bazata ne ga pisuva dolaro
-    return '$'.number_format($number,2);
+    return number_format($number,2).' МКД';
 
 }
 function login($user_id){//funkcija za da naprave session taka si gu krstimoSBUser
@@ -48,5 +48,35 @@ function has_permission($permission='admin'){
 }
 function pretty_date($date){
     return date("M d, Y h:i A", strtotime($date));
+}
+function get_category($child_id){
+    global $db;
+    $id=sanitize($child_id);
+    $sql="SELECT p.id AS 'pid', p.category AS 'parent', c.id AS 'cid', c.category AS 'child'
+          FROM categories c
+          INNER JOIN categories p
+          ON c.parent=p.id
+          WHERE c.id='$id'";
+
+    $query=$db->query($sql);
+    $category=mysqli_fetch_assoc($query);
+    return $category;
+
+}
+function sizesToArray($string){
+ $sizeArray = explode(',',$string);
+ $returnArray=array();
+ foreach ($sizeArray as $size){
+     $s=explode(':',$size);
+     $returnArray[]=array('size'=> $s[0],'quantity'=>$s[1],'threshold'=>@$s[2]);
+ }
+ return $returnArray;
+}
+
+function sizeToString($sizes){
+    $sizeString='';
+    foreach ($sizes as $size){
+        $sizeString .= $size['size'].':'.$size['quantity'].':'.$size['threshold'].',';
+    }
 }
 ?>
